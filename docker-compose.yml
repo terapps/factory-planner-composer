@@ -8,8 +8,10 @@ services:
       - 7687:7687
     volumes:
       - neo4j:/data
-    environment:
-      - NEO4J_AUTH=neo4j/5sS&v%^x5hxeglnq
+    env_file:
+      - env/.env.neo4j
+    networks:
+      - factoryplanner
   cdn:
     image: quay.io/minio/minio
     ports:
@@ -17,10 +19,11 @@ services:
       - 9000:9000
     volumes:
       - minio:/data
-    environment:
-      - MINIO_ROOT_USER=minio
-      - MINIO_ROOT_PASSWORD=password
+    env_file:
+      - env/.env.minio
     command: ["server", "/data", "--console-address", ":9001"]
+    networks:
+      - factoryplanner
 
 networks:
   factoryplanner:
