@@ -1,0 +1,6 @@
+[submodule "factory-planner-frontend"]
+	path = factory-planner-frontend
+	url = git@github.com:terapps/factory-planner-frontend.git
+[submodule "factory-planner-backend"]
+	path = factory-planner-backend
+	url = git@github.com:terapps/factory-planner-backend.git
