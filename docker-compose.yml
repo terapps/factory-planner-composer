@@ -22,6 +22,14 @@ services:
     command: ["server", "/data", "--console-address", ":9001"]
     networks:
       - factoryplanner
+  backend:
+    build:
+      context: ../factory-planner-backend
+    ports:
+      - 8080:8080
+    env_file:
+      - env/.env.minio-backend
+      - env/.env.neo4j-backend
 
 networks:
   factoryplanner:
