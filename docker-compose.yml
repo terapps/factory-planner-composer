@@ -30,6 +30,11 @@ services:
     env_file:
       - env/.env.minio-backend
       - env/.env.neo4j-backend
+  frontend:
+    build:
+      context: ../factory-planner-frontend
+    ports:
+      - 80:80
 
 networks:
   factoryplanner:
